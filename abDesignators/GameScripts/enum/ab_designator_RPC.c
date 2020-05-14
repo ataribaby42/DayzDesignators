@@ -1,0 +1,4 @@
+enum abRPC 
+{
+	RPC_AB_DESIGNATOR_SOUND_REQUEST
+}
