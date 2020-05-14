@@ -6,3 +6,5 @@
 *.ogg binary
 *.paa binary
 *.p3d binary
+*.png binary
+*.ms3d binary
