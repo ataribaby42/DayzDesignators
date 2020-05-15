@@ -23,4 +23,19 @@
   <li>[Lusk]-lynge for great model importing help and texture tips.</li>
   <li>DayZ Modders Discord for initial help and bearings.</li>  
   <li>Rusty Metal texture https://texturify.com/stock-photo/rusty-metal-10383.html</li>
+  <li>Sounds:
+    <p>https://freesound.org/people/Halph-Price/sounds/15959/</p>
+    <p>https://freesound.org/people/suonho/sounds/3176/</p>
+    <p>https://freesound.org/people/Tomlija/sounds/103333/</p>
+    <p>https://freesound.org/people/FreqMan/sounds/32683/</p>
+    <p>https://freesound.org/people/GowlerMusic/sounds/264861/</p>
+    <p>https://freesound.org/people/acclivity/sounds/19220/</p>
+    <p>https://freesound.org/people/Glitchedtones/sounds/375948/</p>
+    <p>https://freesound.org/people/DExUS5/sounds/361686/</p>
+    <p>https://freesound.org/people/klankbeeld/sounds/249907/</p>
+    <p>https://freesound.org/people/DRFX/sounds/350763/</p>
+    <p>https://freesound.org/people/klankbeeld/sounds/130889/</p>
+    <p>https://freesound.org/people/jmichelsen/sounds/403919/</p>
+    <p>https://freesound.org/people/Voices_Of_Marz/sounds/444444/</p>
+  </li>
 </ul>
