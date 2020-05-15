@@ -1,0 +1,10 @@
+name = "Designators";
+picture = "abDesignators/Icons/icon.paa";
+logoSmall = "abDesignators/Icons/icon_ss.paa";
+logo = "abDesignators/Icons/icon_s.paa";
+logoOver = "abDesignators/Icons/icon_s.paa";
+tooltip = "Designators";
+overview = "Adds designator anomaly.";
+action = "https://dayz.com/";
+author = "ataribaby";
+version = "1.0";
