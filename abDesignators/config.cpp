@@ -158,6 +158,10 @@ class CfgSoundShaders
 			{
 				"abDesignators\Sounds\creepy10",
 				1
+			},
+			{
+				"abDesignators\Sounds\creepy11",
+				1
 			}
 		};
 		range=200;
