@@ -1,6 +1,7 @@
 modded class PlayerBase extends ManBase
 {
 	float designatorKillTimer;
+	string designatorKillName;
 	bool designatorKillRequested;
 	
 	override void Init()
@@ -27,20 +28,22 @@ modded class PlayerBase extends ManBase
 				
 				if (identity)
 				{
-					Print("Player " + GetIdentity().GetName() + " has been killed by designator.");
+					Print("Player " + GetIdentity().GetName() + " has been killed by Designator <" + designatorKillName + ">.");
 				}
 				else
 				{
-					Print("Player has been killed by designator.");
+					Print("Player has been killed by Designator <" + designatorKillName + ">.");
 				}
 				
+				designatorKillName = "";
 				SetHealth("GlobalHealth", "Health", 0);
 			}
 		}
 	}
 	
-	void RequestDesignatorKill()
+	void RequestDesignatorKill(string name)
 	{
 		designatorKillRequested = true;
+		designatorKillName = name;
 	}
 };

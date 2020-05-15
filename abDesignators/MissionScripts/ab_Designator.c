@@ -1,5 +1,6 @@
 class ab_Designator
 {
+	private string name;
 	private float designatorModelHeightOffset = 1.3;
 	private float transmittingRange = 100;
 	private float detectionRange = 30;
@@ -12,8 +13,9 @@ class ab_Designator
 	bool InView = false;
 	bool IsTransmitting = false;
 	
-	void ab_Designator(vector position)
+	void ab_Designator(string name, vector position)
 	{
+		this.name = name;
 		designatorObject = GetGame().CreateObject(designatorModels.GetRandomElement(), position);
 		designatorObjectBase = ab_designator_model_base.Cast(designatorObject);
 	}
@@ -142,11 +144,10 @@ class ab_Designator
 				if (distance <= teleportKillRange)
 				{
 					vector pos = player.GetPosition();
-					y = GetGame().SurfaceY(pos[0], pos[2]);
-					designatorObject.SetPosition(Vector(pos[0], y + designatorModelHeightOffset, pos[2]));
+					designatorObject.SetPosition(Vector(pos[0], pos[1] + designatorModelHeightOffset, pos[2]));
 					designatorObject.SetOrientation(orientation);
 					designatorObjectBase.RequestPlayKill();
-					player.RequestDesignatorKill();
+					player.RequestDesignatorKill(name);
 				}
 				else
 				{

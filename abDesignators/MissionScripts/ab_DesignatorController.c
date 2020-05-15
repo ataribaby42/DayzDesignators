@@ -1,5 +1,6 @@
 class ab_DesignatorController
 {
+	private string name;
 	private float resetRadius;
 	private float minTimeBetweenCreepySound = 20;
 	private float creepySoundChance = 0.4;
@@ -8,19 +9,31 @@ class ab_DesignatorController
 	private float radius;
 	private int designatorCount;
 	private ref array<ref ab_Designator> designators = new array<ref ab_Designator>();
+	private ref array<string> designatorPositions = new array<string>();
 	private bool active = false;
 	
-    void ab_DesignatorController(vector position, float resetRadius, float radius, int designatorCount)
+    void ab_DesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount, ref array<string> designatorPositions)
     {
+		if (!designatorPositions)
+		{
+			Print("Random Designators <" + name + "> created at " + position + ".");
+		}
+		else
+		{
+			Print("Predefined Designators <" + name + "> created at " + position + ".");
+		}
+		
 		lastCreepySoundTimeslice = 0;
+		this.name = name;
 		this.position = position;
 		this.radius = radius;
 		this.designatorCount = designatorCount;
+		this.designatorPositions = designatorPositions;
 		this.resetRadius = resetRadius;
 		
 		for (int i = 0; i < designatorCount; i++)
 		{
-			designators.Insert(new ref ab_Designator(position));
+			designators.Insert(new ref ab_Designator(name, position));
 		}
 		
 		SetupDesignators();
@@ -33,12 +46,28 @@ class ab_DesignatorController
 	
 	void SetupDesignators()
 	{
-		for (int i = 0; i < designatorCount; i++)
+		int i;
+		vector pos;
+		vector orientation;
+		
+		if (!designatorPositions)
 		{
-			Vector2 randomPos = GetRandomPointInCircle(radius);
-			vector pos = Vector(position[0] + randomPos.x, position[1], position[2] + randomPos.y);
-			vector orientation = Vector(Math.RandomFloatInclusive(0, 359), Math.RandomFloatInclusive(-2, 2), Math.RandomFloatInclusive(-2, 2));
-			designators[i].Setup(pos, orientation);
+			for (i = 0; i < designatorCount; i++)
+			{
+				Vector2 randomPos = GetRandomPointInCircle(radius);
+				pos = Vector(position[0] + randomPos.x, position[1], position[2] + randomPos.y);
+				orientation = Vector(Math.RandomFloatInclusive(0, 359), Math.RandomFloatInclusive(-2, 2), Math.RandomFloatInclusive(-2, 2));
+				designators[i].Setup(pos, orientation);
+			}
+		}
+		else
+		{
+			for (i = 0; i < designatorPositions.Count(); i++)
+			{
+				pos = designatorPositions[i].ToVector();
+				orientation = Vector(Math.RandomFloatInclusive(0, 359), Math.RandomFloatInclusive(-2, 2), Math.RandomFloatInclusive(-2, 2));
+				designators[i].Setup(pos, orientation);
+			}
 		}
 	}
 	
@@ -56,6 +85,11 @@ class ab_DesignatorController
 			
 			if (objectInRange.IsInherited(PlayerBase) && objectInRange.IsAlive())
 			{
+				if (!active)
+				{
+					Print("Designators <" + name + "> active at " + position + ".");
+				}
+				
 				nobodyNear = false;
 				active = true;
 				break;
@@ -66,6 +100,7 @@ class ab_DesignatorController
 		{
 			SetupDesignators();
 			active = false;
+			Print("Designators <" + name + "> inactive at " + position + ".");
 		}
 		
 		for (i = 0; i < designators.Count(); i++)

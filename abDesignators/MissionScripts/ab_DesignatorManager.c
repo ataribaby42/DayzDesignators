@@ -14,17 +14,22 @@ class ab_DesignatorManager
 	
     void ab_DesignatorManager()
     {
-		
+		Print("Designator Manager started.");
     }
 
 	void ~ab_DesignatorManager()
     {
-		
+		Print("Designator Manager stopped.");
     }
 	
-	void CreateDesignatorController(vector position, float resetRadius, float radius, int designatorCount)
+	void CreateRandomDesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount)
 	{
-		controllers.Insert(new ref ab_DesignatorController(position, resetRadius, radius, designatorCount));
+		controllers.Insert(new ref ab_DesignatorController(name, position, resetRadius, radius, designatorCount, NULL));
+	}
+	
+	void CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array<string> designatorPositions)
+	{
+		controllers.Insert(new ref ab_DesignatorController(name, position, resetRadius, 0, designatorPositions.Count(), designatorPositions));
 	}
 	
 	void Update(float timeslice)
