@@ -141,24 +141,50 @@ class ab_Designator
 
 			if (!InView)
 			{
-				if (distance <= teleportKillRange)
+				vector fromPos = designatorObject.GetPosition();
+				vector begPos = Vector(fromPos[0], fromPos[1] + 3, position[2]);
+				vector endPos = player.GetPosition();
+				vector contactPos;
+				vector contactDir;
+				int contactComponent; 
+				set<Object> results = new set<Object>;
+				Object with = NULL; 
+				Object ignore = designatorObject;  
+				bool sorted; 
+				bool ground_only = false;  
+				int iType = 2;
+				float radius = 0;
+				bool losCheck = false;
+				
+				if (DayZPhysics.RaycastRV(begPos, endPos, contactPos, contactDir, contactComponent, results, with, ignore, sorted, ground_only, iType, radius))
 				{
-					vector pos = player.GetPosition();
-					designatorObject.SetPosition(Vector(pos[0], pos[1] + designatorModelHeightOffset, pos[2]));
-					designatorObject.SetOrientation(orientation);
-					designatorObjectBase.RequestPlayKill();
-					player.RequestDesignatorKill(name);
+					if (results && results.Count() > 0 && results[0] == player)
+					{
+						losCheck = true;
+					}
 				}
-				else
+				
+				if(losCheck)
 				{
-					angles[0] = angles[0] + 180;
-					float range = teleportRange * Math.RandomFloatInclusive(0.5, 1);
-					float x = range * Math.Sin(angles[0] * Math.DEG2RAD);
-					float z = range * Math.Cos(angles[0] * Math.DEG2RAD);
-					y = GetGame().SurfaceY(position[0] + x, position[2] + z);
-					designatorObject.SetPosition(Vector(position[0] + x, y + designatorModelHeightOffset, position[2] + z));
-					designatorObject.SetOrientation(orientation);
-					designatorObjectBase.RequestPlayTeleport();
+					if (distance <= teleportKillRange)
+					{
+						vector pos = player.GetPosition();
+						designatorObject.SetPosition(Vector(pos[0], pos[1] + designatorModelHeightOffset, pos[2]));
+						designatorObject.SetOrientation(orientation);
+						designatorObjectBase.RequestPlayKill();
+						player.RequestDesignatorKill(name);
+					}
+					else
+					{
+						angles[0] = angles[0] + 180;
+						float range = teleportRange * Math.RandomFloatInclusive(0.5, 1);
+						float x = range * Math.Sin(angles[0] * Math.DEG2RAD);
+						float z = range * Math.Cos(angles[0] * Math.DEG2RAD);
+						y = GetGame().SurfaceY(position[0] + x, position[2] + z);
+						designatorObject.SetPosition(Vector(position[0] + x, y + designatorModelHeightOffset, position[2] + z));
+						designatorObject.SetOrientation(orientation);
+						designatorObjectBase.RequestPlayTeleport();
+					}
 				}
 			}
 		}

@@ -28,11 +28,11 @@ modded class PlayerBase extends ManBase
 				
 				if (identity)
 				{
-					Print("Player " + GetIdentity().GetName() + " has been killed by Designator <" + designatorKillName + ">.");
+					Print("Player <" + GetIdentity().GetName() + "> has been killed by Designator <" + designatorKillName + ">.");
 				}
 				else
 				{
-					Print("Player has been killed by Designator <" + designatorKillName + ">.");
+					Print("Player <unknown> has been killed by Designator <" + designatorKillName + ">.");
 				}
 				
 				designatorKillName = "";
