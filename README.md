@@ -19,7 +19,7 @@
 ## Credits
 <ul>
   <li>meshcarver for original idea.</li>
-  <li>HunterCZ for great code, config and modeling help.</li>
+  <li>HunterCZ for great code, config, sound and modeling help.</li>
   <li>[Lusk]-lynge for great model importing help and texture tips.</li>
   <li>DayZ Modders Discord for initial help and bearings.</li>  
 </ul>
