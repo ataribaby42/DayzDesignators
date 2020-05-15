@@ -145,8 +145,8 @@ class ab_Designator
 					y = GetGame().SurfaceY(pos[0], pos[2]);
 					designatorObject.SetPosition(Vector(pos[0], y + designatorModelHeightOffset, pos[2]));
 					designatorObject.SetOrientation(orientation);
-					player.SetHealth("GlobalHealth", "Health", 0);
 					designatorObjectBase.RequestPlayKill();
+					player.RequestDesignatorKill();
 				}
 				else
 				{

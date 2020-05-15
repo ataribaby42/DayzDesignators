@@ -84,6 +84,20 @@ class CfgSoundShaders
 		volume=2;
 	};
 	
+	class ab_designator_kill_SoundShader
+	{
+		samples[]=
+		{
+			
+			{
+				"abDesignators\Sounds\kill.ogg",
+				1
+			}
+		};
+		range=150;
+		volume=6;
+	};
+	
 	class ab_designator_ambient_SoundShader
 	{
 		samples[]=
@@ -176,6 +190,14 @@ class CfgSoundSets
 		soundShaders[]=
 		{
 			"ab_designator_teleport_SoundShader"
+		};
+	};
+	
+	class ab_designator_kill_SoundSet
+	{
+		soundShaders[]=
+		{
+			"ab_designator_kill_SoundShader"
 		};
 	};
 	

@@ -62,7 +62,7 @@ class ab_designator_model_base extends BuildingSuper
 	{
 		if(m_KillFx) return;
 		
-		PlaySoundSet(m_KillFx, "softTreeFall_SoundSet", 0.1, 0.1);
+		PlaySoundSet(m_KillFx, "ab_designator_kill_SoundSet", 0.1, 0.1);
 	}
 	
 	void PlayAmbient()
