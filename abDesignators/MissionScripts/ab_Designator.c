@@ -10,9 +10,9 @@ class ab_Designator
 	private const ref array<string> designatorModels = {"ab_designator_model_1", "ab_designator_model_2", "ab_designator_model_3"};
 	private Object designatorObject;
 	private ab_designator_model_base designatorObjectBase;
-	bool InRange = false; // any player is within detectionRange regardles of LOS and FOV checks - used for creepy random sounds
-	bool IsTransmitting = false; // any player is within transmittingRange regardles of LOS and FOV checks - used for ambient random sounds
-	bool IsTeleportBlocked = false; // designator teleportatin is blocked by any player that looks at it with clear LOS within detectionRange
+	bool InRange = false; // Any player is within detectionRange regardless of LOS and FOV checks - used for creepy random sounds
+	bool IsTransmitting = false; // Any player is within transmittingRange regardless of LOS and FOV checks - used for ambient random sounds
+	bool IsTeleportBlocked = false; // Designator teleportation is blocked by any player that looks at it with clear LOS within detectionRange
 	
 	void ab_Designator(string name, vector position)
 	{
