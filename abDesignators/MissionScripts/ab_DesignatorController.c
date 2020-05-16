@@ -69,6 +69,8 @@ class ab_DesignatorController
 				designators[i].Setup(pos, orientation);
 			}
 		}
+		
+		Print("Designators <" + name + "> reset.");
 	}
 	
 	void Update(float timeslice)

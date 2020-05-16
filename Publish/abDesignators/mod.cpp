@@ -7,4 +7,4 @@ tooltip = "Designators";
 overview = "Adds designator anomaly.";
 action = "https://dayz.com/";
 author = "ataribaby";
-version = "1.01";
+version = "1.04";
