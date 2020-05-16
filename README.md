@@ -67,6 +67,7 @@ Creates predefined Designator infested area with logical center position and fil
   <li>HunterCZ for great code, config, sound and modeling help.</li>
   <li>[Lusk]-lynge for great model importing help and texture tips.</li>
   <li>DayZ Modders Discord for initial help and bearings.</li>  
+  <li>ZeroGaming and w3cko for testing https://www.twitch.tv/zerogaming https://www.twitch.tv/wecko</li>
   <li>Rusty Metal texture https://texturify.com/stock-photo/rusty-metal-10383.html</li>
   <li>Sounds:
     <p>https://freesound.org/people/Halph-Price/sounds/15959/</p>
