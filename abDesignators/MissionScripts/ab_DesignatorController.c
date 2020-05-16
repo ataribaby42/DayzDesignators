@@ -46,111 +46,129 @@ class ab_DesignatorController
 	
 	void SetupDesignators()
 	{
-		int i;
-		vector pos;
-		vector orientation;
-		
-		if (!designatorPositions)
+		if (designators)
 		{
-			for (i = 0; i < designatorCount; i++)
+			int i;
+			vector pos;
+			vector orientation;
+			
+			if (!designatorPositions)
 			{
-				Vector2 randomPos = GetRandomPointInCircle(radius);
-				pos = Vector(position[0] + randomPos.x, position[1], position[2] + randomPos.y);
-				orientation = Vector(Math.RandomFloatInclusive(0, 359), Math.RandomFloatInclusive(-2, 2), Math.RandomFloatInclusive(-2, 2));
-				designators[i].Setup(pos, orientation);
+				for (i = 0; i < designatorCount; i++)
+				{
+					if (designators && designators[i])
+					{
+						Vector2 randomPos = GetRandomPointInCircle(radius);
+						pos = Vector(position[0] + randomPos.x, position[1], position[2] + randomPos.y);
+						orientation = Vector(Math.RandomFloatInclusive(0, 359), Math.RandomFloatInclusive(-2, 2), Math.RandomFloatInclusive(-2, 2));
+						designators[i].Setup(pos, orientation);
+					}
+				}
 			}
-		}
-		else
-		{
-			for (i = 0; i < designatorPositions.Count(); i++)
+			else
 			{
-				pos = designatorPositions[i].ToVector();
-				orientation = Vector(Math.RandomFloatInclusive(0, 359), Math.RandomFloatInclusive(-2, 2), Math.RandomFloatInclusive(-2, 2));
-				designators[i].Setup(pos, orientation);
+				for (i = 0; i < designatorPositions.Count(); i++)
+				{
+					if (designators && designators[i])
+					{
+						pos = designatorPositions[i].ToVector();
+						orientation = Vector(Math.RandomFloatInclusive(0, 359), Math.RandomFloatInclusive(-2, 2), Math.RandomFloatInclusive(-2, 2));
+						designators[i].Setup(pos, orientation);
+					}
+				}
 			}
+			
+			Print("Designators <" + name + "> reset.");
 		}
-		
-		Print("Designators <" + name + "> reset.");
 	}
 	
 	void Update(float timeslice)
 	{
-		int i;
-		bool nobodyNear = true;
-		ref array<Object> nearest_objects = new array<Object>;
-		ref array<CargoBase> proxy_cargos = new array<CargoBase>;
-		GetGame().GetObjectsAtPosition3D(position, resetRadius, nearest_objects, proxy_cargos);
-		
-		for (i = 0; i < nearest_objects.Count(); ++i)
+		if (GetGame() && designators)
 		{
-			Object objectInRange = nearest_objects.Get(i);
+			int i;
+			bool nobodyNear = true;
+			ref array<Object> nearest_objects = new array<Object>;
+			ref array<CargoBase> proxy_cargos = new array<CargoBase>;
+			GetGame().GetObjectsAtPosition3D(position, resetRadius, nearest_objects, proxy_cargos);
 			
-			if (objectInRange.IsInherited(PlayerBase) && objectInRange.IsAlive())
+			for (i = 0; i < nearest_objects.Count(); ++i)
 			{
-				if (!active)
-				{
-					Print("Designators <" + name + "> active at " + position + ".");
-				}
+				Object objectInRange = nearest_objects.Get(i);
 				
-				nobodyNear = false;
-				active = true;
-				break;
+				if (objectInRange.IsInherited(PlayerBase) && objectInRange.IsAlive())
+				{
+					if (!active)
+					{
+						Print("Designators <" + name + "> active at " + position + ".");
+					}
+					
+					nobodyNear = false;
+					active = true;
+					break;
+				}
 			}
-		}
-		
-		if (nobodyNear && active)
-		{
-			SetupDesignators();
-			active = false;
-			Print("Designators <" + name + "> inactive at " + position + ".");
-		}
-		
-		for (i = 0; i < designators.Count(); i++)
-		{
-			designators[i].Update(timeslice);
+			
+			if (nobodyNear && active)
+			{
+				SetupDesignators();
+				active = false;
+				Print("Designators <" + name + "> inactive at " + position + ".");
+			}
+			
+			for (i = 0; i < designators.Count(); i++)
+			{
+				if (designators && designators[i])
+				{
+					designators[i].Update(timeslice);
+				}
+			}
 		}
 	}
 	
 	void UpdateSounds(float timeslice)
 	{	
-		int i;
-		array<ab_Designator> designatorsTransmitting = new array<ab_Designator>();
-		array<ab_Designator> designatorsInRange = new array<ab_Designator>();
-		lastCreepySoundTimeslice += timeslice;
-		
-		if (lastCreepySoundTimeslice >= minTimeBetweenCreepySound)
+		if (GetGame() && designators)
 		{
-			lastCreepySoundTimeslice = 0;	
+			int i;
+			array<ab_Designator> designatorsTransmitting = new array<ab_Designator>();
+			array<ab_Designator> designatorsInRange = new array<ab_Designator>();
+			lastCreepySoundTimeslice += timeslice;
 			
-			for (i = 0; i < designators.Count(); i++)
+			if (lastCreepySoundTimeslice >= minTimeBetweenCreepySound)
 			{
-				if (designators[i].InRange)
+				lastCreepySoundTimeslice = 0;	
+				
+				for (i = 0; i < designators.Count(); i++)
 				{
-					designatorsInRange.Insert(designators[i]);
+					if (designators && designators[i] && designators[i].InRange)
+					{
+						designatorsInRange.Insert(designators[i]);
+					}
+				}
+				
+				if (designatorsInRange.Count() > 0 && Math.RandomFloat01() < creepySoundChance)
+				{
+					designatorsInRange.GetRandomElement().RequestPlayCreepy();
 				}
 			}
 			
-			if (designatorsInRange.Count() > 0 && Math.RandomFloat01() < creepySoundChance)
+			for (i = 0; i < designators.Count(); i++)
 			{
-				designatorsInRange.GetRandomElement().RequestPlayCreepy();
+				if (designators && designators[i] && designators[i].IsTransmitting)
+				{
+					designatorsTransmitting.Insert(designators[i]);
+				}
 			}
-		}
-		
-		for (i = 0; i < designators.Count(); i++)
-		{
-			if (designators[i].IsTransmitting)
+			
+			for (i = 0; i < Math.RandomIntInclusive(1, 4); i++)
 			{
-				designatorsTransmitting.Insert(designators[i]);
-			}
-		}
-		
-		for (i = 0; i < Math.RandomIntInclusive(1, 4); i++)
-		{
-			if (designatorsTransmitting.Count() > 0)
-			{
-				ab_Designator designatorPlay = designatorsTransmitting.GetRandomElement();
-				designatorPlay.RequestPlayAmbient();
-				designatorsTransmitting.RemoveItem(designatorPlay);
+				if (designatorsTransmitting.Count() > 0)
+				{
+					ab_Designator designatorPlay = designatorsTransmitting.GetRandomElement();
+					designatorPlay.RequestPlayAmbient();
+					designatorsTransmitting.RemoveItem(designatorPlay);
+				}
 			}
 		}
 	}

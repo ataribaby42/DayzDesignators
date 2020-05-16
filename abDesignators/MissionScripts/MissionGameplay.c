@@ -23,7 +23,7 @@ modded class MissionGameplay
 	{
 		super.OnUpdate(timeslice);
 		
-		if (GetGame().IsServer())	
+		if (GetGame() && GetGame().IsServer())	
 		{
 			ab_DesignatorsTimeslice += timeslice;
 			if (ab_DesignatorsTimeslice >= 5.0)

@@ -17,7 +17,7 @@ class ab_designator_model_base extends BuildingSuper
 	
 	void RequestPlayTeleport()
 	{
-		if (GetGame().IsServer())
+		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("teleport");
 			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
@@ -26,7 +26,7 @@ class ab_designator_model_base extends BuildingSuper
 	
 	void RequestPlayKill()
 	{
-		if (GetGame().IsServer())
+		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("kill");
 			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
@@ -35,7 +35,7 @@ class ab_designator_model_base extends BuildingSuper
 	
 	void RequestPlayAmbient()
 	{
-		if (GetGame().IsServer())
+		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("ambient");
 			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
@@ -44,7 +44,7 @@ class ab_designator_model_base extends BuildingSuper
 	
 	void RequestPlayCreepy()
 	{
-		if (GetGame().IsServer())
+		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("creepy");
 			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
@@ -83,7 +83,7 @@ class ab_designator_model_base extends BuildingSuper
 	{
 		super.OnRPC(sender, rpc_type, ctx);
 		
-		if (GetGame().IsClient() || !GetGame().IsMultiplayer())
+		if (GetGame() && (GetGame().IsClient() || !GetGame().IsMultiplayer()))
 		{
 			switch(rpc_type)
 			{

@@ -16,7 +16,7 @@ modded class PlayerBase extends ManBase
 	{
 		super.EOnFrame(other, timeSlice);
 		
-		if (GetGame().IsServer() && designatorKillRequested)	
+		if (GetGame() && GetGame().IsServer() && designatorKillRequested)	
 		{
 			designatorKillTimer += timeSlice;
 			

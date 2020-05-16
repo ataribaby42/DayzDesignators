@@ -24,27 +24,45 @@ class ab_DesignatorManager
 	
 	void CreateRandomDesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount)
 	{
-		controllers.Insert(new ref ab_DesignatorController(name, position, resetRadius, radius, designatorCount, NULL));
+		if (controllers)
+		{
+			controllers.Insert(new ref ab_DesignatorController(name, position, resetRadius, radius, designatorCount, NULL));
+		}
 	}
 	
 	void CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array<string> designatorPositions)
 	{
-		controllers.Insert(new ref ab_DesignatorController(name, position, resetRadius, 0, designatorPositions.Count(), designatorPositions));
+		if (controllers)
+		{
+			controllers.Insert(new ref ab_DesignatorController(name, position, resetRadius, 0, designatorPositions.Count(), designatorPositions));
+		}
 	}
 	
 	void Update(float timeslice)
 	{
-		for (int i = 0; i < controllers.Count(); i++)
+		if (controllers)
 		{
-			controllers[i].Update(timeslice);
+			for (int i = 0; i < controllers.Count(); i++)
+			{
+				if (controllers && controllers[i])
+				{
+					controllers[i].Update(timeslice);
+				}
+			}
 		}
 	}
 	
 	void UpdateSounds(float timeslice)
 	{
-		for (int i = 0; i < controllers.Count(); i++)
+		if (controllers)
 		{
-			controllers[i].UpdateSounds(timeslice);
+			for (int i = 0; i < controllers.Count(); i++)
+			{
+				if (controllers && controllers[i])
+				{
+					controllers[i].UpdateSounds(timeslice);
+				}
+			}
 		}
 	}
 }
