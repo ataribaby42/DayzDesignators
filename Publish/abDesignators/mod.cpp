@@ -5,6 +5,6 @@ logo = "abDesignators/Icons/icon_s.paa";
 logoOver = "abDesignators/Icons/icon_s.paa";
 tooltip = "Designators";
 overview = "Adds designator anomaly.";
-action = "https://dayz.com/";
+action = "https://steamcommunity.com/sharedfiles/filedetails/?id=2097380865";
 author = "ataribaby";
 version = "1.04";
