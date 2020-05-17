@@ -88,17 +88,23 @@ class ab_DesignatorController
 		{
 			int i;
 			bool nobodyNear = true;
-			ref array<Object> nearest_objects = new array<Object>;
-			ref array<CargoBase> proxy_cargos = new array<CargoBase>;
-			GetGame().GetObjectsAtPosition3D(position, resetRadius, nearest_objects, proxy_cargos);
 			
-			for (i = 0; i < nearest_objects.Count(); ++i)
+			array<Man> players = new array<Man>; 																				
+			GetGame().GetPlayers(players);
+			
+			for (i = 0; i < players.Count(); i++)
 			{
-				Object objectInRange = nearest_objects.Get(i);
+				PlayerBase player;
+				Class.CastTo(player, players.Get(i));
 				
-				if (objectInRange.IsInherited(PlayerBase) && objectInRange.IsAlive())
+				if (player.IsAlive())
 				{
-					if (!active)
+					vector playerPos = player.GetPosition();
+					float distance = vector.Distance(playerPos, position);
+					
+					if (distance <= resetRadius)
+					{
+						if (!active)
 					{
 						Print("Designators <" + name + "> active at " + position + ".");
 					}
@@ -106,6 +112,7 @@ class ab_DesignatorController
 					nobodyNear = false;
 					active = true;
 					break;
+					}
 				}
 			}
 			

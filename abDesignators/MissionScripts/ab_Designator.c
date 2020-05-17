@@ -178,49 +178,45 @@ class ab_Designator
 			vector angles;
 			Object nearestPerson = NULL;
 			vector position = designatorObject.GetPosition();
-			ref array<Object> nearest_objects = new array<Object>;
-			ref array<CargoBase> proxy_cargos = new array<CargoBase>;
-			GetGame().GetObjectsAtPosition3D(position, detectionRange, nearest_objects, proxy_cargos);
-
-			for (i = 0; i < nearest_objects.Count(); ++i)
-			{
-				Object objectInRange = nearest_objects.Get(i);
-				
-				if (objectInRange.IsInherited(PlayerBase) && objectInRange.IsAlive())
-				{
-					float dist = vector.Distance(objectInRange.GetPosition(), position);
-					PlayerBase playerTmp = PlayerBase.Cast(objectInRange);
-					vector orientationTmp;
-					vector anglesTmp;
-					bool inView = InPlayerFovCheck(playerTmp, designatorObject, orientation, angles);
-					bool losCheck = LosCheck(designatorObject, playerTmp);
-					
-					if ((distance > dist || distance == -1) && !inView && losCheck)
-					{
-						distance = dist;
-						nearestPerson = objectInRange;
-						
-					}
-					
-					if (inView && losCheck)
-					{
-						IsTeleportBlocked = true;	
-					}
-					
-					InRange = true;
-				}
-			}
+			array<Man> players = new array<Man>; 			
 			
-			GetGame().GetObjectsAtPosition3D(position, transmittingRange, nearest_objects, proxy_cargos);
-
-			for (i = 0; i < nearest_objects.Count(); ++i)
+			GetGame().GetPlayers(players);
+			
+			for (i = 0; i < players.Count(); i++)
 			{
-				Object objectTransmitting = nearest_objects.Get(i);
-					
-				if (objectTransmitting.IsInherited(PlayerBase) && objectTransmitting.IsAlive())
+				PlayerBase playerCheck;
+				Class.CastTo(playerCheck, players.Get(i));
+				
+				if (playerCheck.IsAlive())
 				{
-					IsTransmitting = true;
-					break;
+					vector playerPos = playerCheck.GetPosition();
+					float distanceCheck = vector.Distance(playerPos, position);
+					
+					if (distanceCheck <= detectionRange)
+					{
+						vector orientationTmp;
+						vector anglesTmp;
+						bool inView = InPlayerFovCheck(playerCheck, designatorObject, orientation, angles);
+						bool losCheck = LosCheck(designatorObject, playerCheck);
+						
+						if ((distance > distanceCheck || distance == -1) && !inView && losCheck)
+						{
+							distance = distanceCheck;
+							nearestPerson = playerCheck;
+						}
+						
+						if (inView && losCheck)
+						{
+							IsTeleportBlocked = true;	
+						}
+						
+						InRange = true;
+					}
+					
+					if (distanceCheck <= transmittingRange)
+					{
+						IsTransmitting = true;
+					}
 				}
 			}
 
