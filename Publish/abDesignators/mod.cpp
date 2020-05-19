@@ -7,4 +7,4 @@ tooltip = "Designators";
 overview = "Adds designator anomaly.";
 action = "https://steamcommunity.com/sharedfiles/filedetails/?id=2097380865";
 author = "ataribaby";
-version = "1.08";
+version = "1.09";

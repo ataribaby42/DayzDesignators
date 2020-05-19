@@ -128,6 +128,11 @@ class ab_DesignatorController
 				if (designators && designators[i])
 				{
 					designators[i].Update(timeslice);
+					
+					if (active && designators[i].InRange)
+					{
+						designators[i].RequestPlaySync();
+					}
 				}
 			}
 		}

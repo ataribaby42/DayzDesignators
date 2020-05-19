@@ -49,23 +49,42 @@ class CfgVehicles
 	};
 	class ab_designator_model_1: ab_designator_model_base
 	{
-		scope=1;
+		scope=2;
 		model="abDesignators\Models\designator1.p3d";
 	};
 	class ab_designator_model_2: ab_designator_model_base
 	{
-		scope=1;
+		scope=2;
 		model="abDesignators\Models\designator2.p3d";
 	};
 	class ab_designator_model_3: ab_designator_model_base
 	{
-		scope=1;
+		scope=2;
 		model="abDesignators\Models\designator3.p3d";
+	};
+	class ab_designator_model_4: ab_designator_model_base
+	{
+		scope=2;
+		model="abDesignators\Models\designator4.p3d";
 	};
 };
 
 class CfgSoundShaders
 {
+	class ab_designator_sync_SoundShader
+	{
+		samples[]=
+		{
+			
+			{
+				"abDesignators\Sounds\sync.ogg",
+				1
+			}
+		};
+		range=200;
+		volume=2;
+	};
+	
 	class ab_designator_teleport_SoundShader
 	{
 		samples[]=
@@ -185,6 +204,14 @@ class CfgSoundShaders
 
 class CfgSoundSets
 {
+	class ab_designator_sync_SoundSet
+	{
+		soundShaders[]=
+		{
+			"ab_designator_sync_SoundShader"
+		};
+	};
+	
 	class ab_designator_teleport_SoundSet
 	{
 		soundShaders[]=

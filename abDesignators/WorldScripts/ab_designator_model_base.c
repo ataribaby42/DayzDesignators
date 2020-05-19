@@ -1,5 +1,6 @@
 class ab_designator_model_base extends BuildingSuper
 {
+	protected ref EffectSound m_SyncFx;
 	protected ref EffectSound m_TeleportFx;
 	protected ref EffectSound m_KillFx;
 	protected ref EffectSound m_AmbientFx;
@@ -13,6 +14,15 @@ class ab_designator_model_base extends BuildingSuper
 	void ~ab_designator_model_base()
 	{
 		
+	}
+	
+	void RequestPlaySync()
+	{
+		if (GetGame() && GetGame().IsServer())
+		{
+			Param1<string> p = new Param1<string>("sync");
+			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
+		}
 	}
 	
 	void RequestPlayTeleport()
@@ -49,6 +59,13 @@ class ab_designator_model_base extends BuildingSuper
 			Param1<string> p = new Param1<string>("creepy");
 			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
 		}
+	}
+	
+	void PlaySync()
+	{
+		if(m_SyncFx) return;
+		
+		PlaySoundSet(m_SyncFx, "ab_designator_sync_SoundSet", 0, 0);
 	}
 	
 	void PlayTeleport()
@@ -93,7 +110,11 @@ class ab_designator_model_base extends BuildingSuper
 					
 					if (ctx.Read(soundRequest))
 					{
-						if (soundRequest.param1 == "teleport")
+						if (soundRequest.param1 == "sync")
+						{
+							PlaySync();
+						}
+						else if (soundRequest.param1 == "teleport")
 						{
 							PlayTeleport();
 						}

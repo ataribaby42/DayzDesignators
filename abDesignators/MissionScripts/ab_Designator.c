@@ -7,7 +7,7 @@ class ab_Designator
 	private float detectionRange = 30;
 	private float teleportRange = 10;
 	private float teleportKillRange = 10;
-	private const ref array<string> designatorModels = {"ab_designator_model_1", "ab_designator_model_2", "ab_designator_model_3"};
+	private const ref array<string> designatorModels = {"ab_designator_model_1", "ab_designator_model_2", "ab_designator_model_3", "ab_designator_model_4"};
 	private Object designatorObject;
 	private ab_designator_model_base designatorObjectBase;
 	bool InRange = false; // Any player is within detectionRange regardless of LOS and FOV checks - used for creepy random sounds
@@ -39,6 +39,14 @@ class ab_Designator
 			InRange = false;
 			IsTransmitting = false;
 			IsTeleportBlocked = false;
+		}
+	}
+	
+	void RequestPlaySync()
+	{
+		if (designatorObjectBase)
+		{
+			designatorObjectBase.RequestPlaySync();
 		}
 	}
 	
