@@ -23,9 +23,10 @@ This is both server and client mod. Client needs just subscribe to mod or adds i
 
 At server side open your mission Init.c and find void main(). Put following code at the end of main function.
 
+```
 Get_ab_DesignatorManager().CreateRandomDesignatorController("Veresnik Fields", "4839.479980 330.536011 8454.200195", 500, 50, 20);
 
-array\<string\> designatorPositions = {
+array<string> designatorPositions = {
 		"4464.140137 315.640991 8250.669922",
 		"4456.279785 315.337006 8264.139648",
 		"4424.439941 314.873993 8269.299805",
@@ -50,6 +51,7 @@ array\<string\> designatorPositions = {
 };
   
 Get_ab_DesignatorManager().CreatePredefinedDesignatorController("Veresnik Military Base", "4537.540039 318.433014 8297.910156", 500, designatorPositions);
+```
 
 ### API
 **_Get_ab_DesignatorManager().CreateRandomDesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount)_**
