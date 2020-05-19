@@ -40,9 +40,9 @@ class ab_DesignatorController
     }
 
 	void ~ab_DesignatorController()
-    {
+	{
 		
-    }
+	}
 	
 	void SetupDesignators()
 	{
