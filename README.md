@@ -52,11 +52,11 @@ array<string> designatorPositions = {
 Get_ab_DesignatorManager().CreatePredefinedDesignatorController("Veresnik Military Base", "4537.540039 318.433014 8297.910156", 500, designatorPositions);
 
 ### API
-**Get_ab_DesignatorManager().CreateRandomDesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount)**
+**_Get_ab_DesignatorManager().CreateRandomDesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount)_**
 
 Creates circular Designator infested area with size of radius at position and randomly fills it with designatorCount Designators. Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
-**Get_ab_DesignatorManager().CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array<string> designatorPositions)**
+**_Get_ab_DesignatorManager().CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array<string> designatorPositions)_**
   
 Creates predefined Designator infested area with logical center position and fills it with designatorCount Designators from designatorPositions string array that contains Designator coords in vector format.  Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
