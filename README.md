@@ -23,6 +23,7 @@ This is both server and client mod. Client needs just subscribe to mod or adds i
 
 At server side open your mission Init.c and find void main(). Put following code at the end of main function.
 
+```
 Get_ab_DesignatorManager().CreateRandomDesignatorController("Veresnik Fields", "4839.479980 330.536011 8454.200195", 500, 50, 20);
 
 array<string> designatorPositions = {
@@ -50,13 +51,14 @@ array<string> designatorPositions = {
 };
   
 Get_ab_DesignatorManager().CreatePredefinedDesignatorController("Veresnik Military Base", "4537.540039 318.433014 8297.910156", 500, designatorPositions);
+```
 
 ### API
 **_Get_ab_DesignatorManager().CreateRandomDesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount)_**
 
 Creates circular Designator infested area with size of radius at position and randomly fills it with designatorCount Designators. Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
-**_Get_ab_DesignatorManager().CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array<string> designatorPositions)_**
+**_Get_ab_DesignatorManager().CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array\<string\> designatorPositions)_**
   
 Creates predefined Designator infested area with logical center position and fills it with designatorCount Designators from designatorPositions string array that contains Designator coords in vector format.  Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
