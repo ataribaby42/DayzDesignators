@@ -25,7 +25,7 @@ At server side open your mission Init.c and find void main(). Put following code
 
 Get_ab_DesignatorManager().CreateRandomDesignatorController("Veresnik Fields", "4839.479980 330.536011 8454.200195", 500, 50, 20);
 
-array<string> designatorPositions = {
+array\<string\> designatorPositions = {
 		"4464.140137 315.640991 8250.669922",
 		"4456.279785 315.337006 8264.139648",
 		"4424.439941 314.873993 8269.299805",
