@@ -26,6 +26,7 @@ modded class MissionServer extends MissionBase
 		if (GetGame() && GetGame().IsServer())	
 		{
 			ab_DesignatorsTimeslice += timeslice;
+			
 			if (ab_DesignatorsTimeslice >= 5.0)
 			{
 				Get_ab_DesignatorManager().Update(ab_DesignatorsTimeslice);
@@ -33,6 +34,7 @@ modded class MissionServer extends MissionBase
 			}
 			
 			ab_DesignatorsSoundTimeslice += timeslice;
+			
 			if (ab_DesignatorsSoundTimeslice >= 2.0)
 			{
 				Get_ab_DesignatorManager().UpdateSounds(ab_DesignatorsSoundTimeslice);

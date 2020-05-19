@@ -12,8 +12,8 @@ class ab_DesignatorController
 	private ref array<string> designatorPositions = new array<string>();
 	private bool active = false;
 	
-    void ab_DesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount, ref array<string> designatorPositions)
-    {
+	void ab_DesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount, ref array<string> designatorPositions)
+	{
 		if (!designatorPositions)
 		{
 			Print("Random Designators <" + name + "> created at " + position + ".");
@@ -37,7 +37,7 @@ class ab_DesignatorController
 		}
 		
 		SetupDesignators();
-    }
+	}
 
 	void ~ab_DesignatorController()
 	{
