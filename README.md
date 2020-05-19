@@ -18,7 +18,7 @@
   <li>Never turn your back on a Designator- maintain visual contact at ALL TIMES</li>
 </ul>
 
-## INSTALLATION AND SETUP
+### INSTALLATION AND SETUP
 This is both server and client mod. Client needs just subscribe to mod or adds it manually. 
 
 At server side open your mission Init.c and find void main(). Put following code at the end of main function.
@@ -51,16 +51,16 @@ array<string> designatorPositions = {
   
 Get_ab_DesignatorManager().CreatePredefinedDesignatorController("Veresnik Military Base", "4537.540039 318.433014 8297.910156", 500, designatorPositions);
 
-## API
-Get_ab_DesignatorManager().CreateRandomDesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount)
+### API
+**Get_ab_DesignatorManager().CreateRandomDesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount)**
 
 Creates circular Designator infested area with size of radius at position and randomly fills it with designatorCount Designators. Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
-Get_ab_DesignatorManager().CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array<string> designatorPositions)
+**Get_ab_DesignatorManager().CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array<string> designatorPositions)**
   
 Creates predefined Designator infested area with logical center position and fills it with designatorCount Designators from designatorPositions string array that contains Designator coords in vector format.  Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
-## CREDITS
+### CREDITS
 <ul>
   <li>Code and models by ataribaby.</li>
   <li>meshcarver for original idea.</li>
@@ -86,7 +86,7 @@ Creates predefined Designator infested area with logical center position and fil
   </li>
 </ul>
 
-## LICENSE
+### LICENSE
 Mod is open source and you are free to modify, repack and publish. If you fix or enhance it please consider push it to me for intergration into official version.
 
 Steam Workshop link: https://steamcommunity.com/sharedfiles/filedetails/?id=2097380865
