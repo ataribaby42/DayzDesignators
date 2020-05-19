@@ -25,9 +25,9 @@ class ab_Designator
 	}
 	
 	void ~ab_Designator()
-    {
+	{
 		
-    }
+	}
 	
 	void Setup(vector position, vector orientation)
 	{
