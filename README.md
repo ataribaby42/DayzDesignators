@@ -56,7 +56,7 @@ Get_ab_DesignatorManager().CreatePredefinedDesignatorController("Veresnik Milita
 
 Creates circular Designator infested area with size of radius at position and randomly fills it with designatorCount Designators. Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
-**_Get_ab_DesignatorManager().CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array<string> designatorPositions)_**
+**_Get_ab_DesignatorManager().CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array\<string\> designatorPositions)_**
   
 Creates predefined Designator infested area with logical center position and fills it with designatorCount Designators from designatorPositions string array that contains Designator coords in vector format.  Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
