@@ -33,7 +33,7 @@ class ab_DesignatorController
 		
 		for (int i = 0; i < designatorCount; i++)
 		{
-			designators.Insert(new ref ab_Designator(name, position));
+			designators.Insert(new ref ab_Designator(name, position, resetRadius));
 		}
 		
 		SetupDesignators();
@@ -131,6 +131,7 @@ class ab_DesignatorController
 					
 					if (active && designators[i].InRange)
 					{
+						designators[i].RequestPlayAmbient();
 						designators[i].RequestPlaySync();
 					}
 				}

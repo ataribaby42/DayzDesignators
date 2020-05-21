@@ -67,6 +67,16 @@ class CfgVehicles
 		scope=2;
 		model="abDesignators\Models\designator4.p3d";
 	};
+	class ab_designator_model_5: ab_designator_model_base
+	{
+		scope=2;
+		model="abDesignators\Models\designator5.p3d";
+	};
+	class ab_designator_model_6: ab_designator_model_base
+	{
+		scope=2;
+		model="abDesignators\Models\designator6.p3d";
+	};
 };
 
 class CfgSoundShaders

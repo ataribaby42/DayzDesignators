@@ -7,19 +7,23 @@ class ab_Designator
 	private float detectionRange = 30;
 	private float teleportRange = 10;
 	private float teleportKillRange = 10;
-	private const ref array<string> designatorModels = {"ab_designator_model_1", "ab_designator_model_2", "ab_designator_model_3", "ab_designator_model_4"};
+	private const ref array<string> designatorModels = {"ab_designator_model_1", "ab_designator_model_2", "ab_designator_model_3", "ab_designator_model_4", "ab_designator_model_5", "ab_designator_model_6"};
 	private Object designatorObject;
+	private vector areaPosition;
+	private float areaResetRadius;
 	private ab_designator_model_base designatorObjectBase;
 	bool InRange = false; // Any player is within detectionRange regardless of LOS and FOV checks - used for creepy random sounds
 	bool IsTransmitting = false; // Any player is within transmittingRange regardless of LOS and FOV checks - used for ambient random sounds
-	bool IsTeleportBlocked = false; // Designator teleportation is blocked by any player that looks at it with clear LOS within detectionRange
+	bool IsTeleportBlocked = false; // Designator teleportation is blocked by any player that looks at it with clear LOS within detectionRange or designator wandered outside designators area
 	
-	void ab_Designator(string name, vector position)
+	void ab_Designator(string name, vector areaPosition, float areaResetRadius)
 	{
 		if (GetGame())
 		{
 			this.name = name;
-			designatorObject = GetGame().CreateObject(designatorModels.GetRandomElement(), position);
+			this.areaPosition = areaPosition;
+			this.areaResetRadius = areaResetRadius;
+			designatorObject = GetGame().CreateObject(designatorModels.GetRandomElement(), areaPosition);
 			designatorObjectBase = ab_designator_model_base.Cast(designatorObject);
 		}
 	}
@@ -224,6 +228,13 @@ class ab_Designator
 					if (distanceCheck <= transmittingRange)
 					{
 						IsTransmitting = true;
+					}
+					
+					distanceCheck = vector.Distance(position, areaPosition);
+					
+					if (distanceCheck > areaResetRadius)
+					{
+						IsTeleportBlocked = true;
 					}
 				}
 			}
