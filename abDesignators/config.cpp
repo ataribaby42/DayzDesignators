@@ -18,6 +18,8 @@ class CfgMods
 	class abDesignators
 	{
 		type="mod";
+		dependencies[] = {"Game"};
+		
 		class defs
 		{
 			class gameScriptModule
@@ -35,7 +37,6 @@ class CfgMods
 				value="";
 				files[]={"abDesignators/MissionScripts"};
 			};
-
 		};
 	};
 
