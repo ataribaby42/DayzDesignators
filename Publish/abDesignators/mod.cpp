@@ -1,10 +1,10 @@
-name = "Designators";
+name = "$STR_abDesignators_mod_name";
 picture = "abDesignators/Icons/icon.paa";
 logoSmall = "abDesignators/Icons/icon_ss.paa";
 logo = "abDesignators/Icons/icon_s.paa";
 logoOver = "abDesignators/Icons/icon_s.paa";
-tooltip = "Designators";
-overview = "Adds designator anomaly.";
+tooltip = "$STR_abDesignators_mod_name";
+overview = "$STR_abDesignators_mod_overview";
 action = "https://steamcommunity.com/sharedfiles/filedetails/?id=2097380865";
 author = "ataribaby";
-version = "1.10";
+version = "1.11";
