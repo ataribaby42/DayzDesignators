@@ -60,7 +60,7 @@ Creates circular Designator infested area with size of radius at position and ra
 
 **_Get_ab_DesignatorManager().CreatePredefinedDesignatorController(string name, vector position, float resetRadius, ref array\<string\> designatorPositions)_**
   
-Creates predefined Designator infested area with logical center position and fills it with designatorCount Designators from designatorPositions string array that contains Designator coords in vector format.  Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
+Creates predefined Designator infested area with logical center position and fills it with Designators from designatorPositions string array that contains coords in vector format. Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
 ### CREDITS
 <ul>
