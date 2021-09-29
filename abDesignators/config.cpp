@@ -155,7 +155,7 @@ class CfgSoundShaders
 			}
 		};
 		range=300;
-		volume=2;
+		volume=1;
 	};
 	
 	class ab_designator_creepy_SoundShader
