@@ -124,7 +124,7 @@ class CfgSoundShaders
 				1
 			}
 		};
-		range=150;
+		range=150; 
 		volume=6;
 	};
 	

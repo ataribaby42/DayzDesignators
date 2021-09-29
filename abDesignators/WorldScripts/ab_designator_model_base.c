@@ -63,35 +63,35 @@ class ab_designator_model_base extends BuildingSuper
 	
 	void PlaySync()
 	{
-		if(m_SyncFx) return;
-		
-		PlaySoundSet(m_SyncFx, "ab_designator_sync_SoundSet", 0, 0);
+		if(m_SyncFx && m_SyncFx.IsSoundPlaying()) return
+
+		PlaySoundSet(m_SyncFx, "ab_designator_sync_SoundSet", 0.1, 0.1);
 	}
 	
 	void PlayTeleport()
 	{
-		if(m_TeleportFx) return;
+		if(m_TeleportFx && m_TeleportFx.IsSoundPlaying()) return;
 		
 		PlaySoundSet(m_TeleportFx, "ab_designator_teleport_SoundSet", 0.1, 0.1);
 	}
 	
 	void PlayKill()
 	{
-		if(m_KillFx) return;
+		if(m_KillFx && m_KillFx.IsSoundPlaying()) return;
 		
 		PlaySoundSet(m_KillFx, "ab_designator_kill_SoundSet", 0.1, 0.1);
 	}
 	
 	void PlayAmbient()
 	{
-		if(m_AmbientFx) return;
+		if(m_AmbientFx && m_AmbientFx.IsSoundPlaying()) return;
 		
 		PlaySoundSet(m_AmbientFx, "ab_designator_ambient_SoundSet", 0.1, 0.1);
 	}
 	
 	void PlayCreepy()
 	{
-		if(m_CreepyFx) return;
+		if(m_CreepyFx && m_CreepyFx.IsSoundPlaying()) return;
 		
 		PlaySoundSet(m_CreepyFx, "ab_designator_creepy_SoundSet", 0.1, 0.1);
 	}
