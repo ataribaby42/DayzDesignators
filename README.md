@@ -62,6 +62,9 @@ Creates circular Designator infested area with size of radius at position and ra
   
 Creates predefined Designator infested area with logical center position and fills it with Designators from designatorPositions string array that contains coords in vector format. Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
+### BONUS
+Spawnable inventory item "Classified Designators Report". Can be spawned into player inventory or via types.xml. Class name is "ab_designator_report".
+
 ### CREDITS
 <ul>
   <li>Code and models by ataribaby.</li>
