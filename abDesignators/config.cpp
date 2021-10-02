@@ -8,7 +8,7 @@ class CfgPatches
 		requiredAddons[]=
 		{
 			"DZ_Data",
-			"DZ_Structures_Signs"
+			"DZ_Scripts"
 		};
 	};
 };
@@ -18,7 +18,7 @@ class CfgMods
 	class abDesignators
 	{
 		type="mod";
-		dependencies[] = {"Game"};
+		dependencies[] = {"Game", "World", "Mission"};
 		
 		class defs
 		{
@@ -44,6 +44,91 @@ class CfgMods
 
 class CfgVehicles
 {
+	class Inventory_Base;
+	class ab_designator_report: Inventory_Base
+	{
+		scope=2;
+		title="$STR_abDesignators_item_designators_report";
+		author="$STR_abDesignators_item_designators_author";
+		file="abDesignators\Gear\Lore\Data\abDesignators_report.html";
+		displayName="$STR_abDesignators_item_designators_report";
+		descriptionShort="$STR_abDesignators_item_designators_report_desc";
+		model="\dz\gear\consumables\Paper.p3d";
+		isMeleeWeapon=1;
+		weight=2;
+		absorbency=1;
+		itemSize[]={1,1};
+		rotationFlags=16;
+		inventorySlot[]=
+		{
+			"Paper"
+		};
+		class DamageSystem
+		{
+			class GlobalHealth
+			{
+				class Health
+				{
+					hitpoints=15;
+					healthLevels[]=
+					{
+						
+						{
+							1,
+							
+							{
+								"DZ\gear\consumables\data\Loot_Paper.rvmat"
+							}
+						},
+						
+						{
+							0.69999999,
+							
+							{
+								"DZ\gear\consumables\data\Loot_Paper.rvmat"
+							}
+						},
+						
+						{
+							0.5,
+							
+							{
+								"DZ\gear\consumables\data\Loot_Paper_damage.rvmat"
+							}
+						},
+						
+						{
+							0.30000001,
+							
+							{
+								"DZ\gear\consumables\data\Loot_Paper_damage.rvmat"
+							}
+						},
+						
+						{
+							0,
+							
+							{
+								"DZ\gear\consumables\data\Loot_Paper_destruct.rvmat"
+							}
+						}
+					};
+				};
+			};
+		};
+		class AnimEvents
+		{
+			class SoundWeapon
+			{
+				class pickUpItem
+				{
+					soundSet="pickUpPaper_SoundSet";
+					id=797;
+				};
+			};
+		};
+	};
+
 	class HouseNoDestruct;
 	class ab_designator_model_base: HouseNoDestruct
 	{

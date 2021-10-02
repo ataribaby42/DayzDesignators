@@ -1,7 +1,9 @@
 "Language","original","english","czech","german","russian","polish","italian","spanish","french","chinese","japanese","portuguese","chinesesimp"
+"STR_abDesignators_item_designators_report","Designators Report","Designators Report","Zpráva o značkovačích","Designators Report","Designators Report","Designators Report","Designators Report","Designators Report","Designators Report","Designators Report","Designators Report","Designators Report","Designators Report"
+"STR_abDesignators_item_designators_report_desc","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly.","Tento dokument obsahuje tajnou zprávu o značkovačích.","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly.","This document seems to provide classified report about Designators anomaly."
+"STR_abDesignators_item_designators_author","CLASSIFIED","CLASSIFIED","TAJNÉ","CLASSIFIED","CLASSIFIED","CLASSIFIED","CLASSIFIED","CLASSIFIED","CLASSIFIED","CLASSIFIED","CLASSIFIED","CLASSIFIED","CLASSIFIED"
 "STR_abDesignators_mod_name","Designators","Designators","Značkovače","Designators","Designators","Designators","Designators","Designators","Designators","Designators","Designators","Designators","Designators"
 "STR_abDesignators_mod_overview","Adds designator anomaly.
-
 RULES OF ENGAGEMENT WHILST IN A DESIGNATOR INFESTED AREA
 
 All staff entering this site must be authorised.
