@@ -1,5 +1,6 @@
 modded class PlayerBase extends ManBase
 {
+	protected bool ab_designator_BookMenuToggle;
 	float designatorKillTimer;
 	string designatorKillName;
 	bool designatorKillRequested;
@@ -10,6 +11,7 @@ modded class PlayerBase extends ManBase
 		
 		designatorKillTimer = 0;
 		designatorKillRequested = false;
+		ab_designator_BookMenuToggle = false;
 	}
 	
 	override void EOnFrame(IEntity other, float timeSlice)
@@ -45,5 +47,15 @@ modded class PlayerBase extends ManBase
 	{
 		designatorKillRequested = true;
 		designatorKillName = name;
+	}
+	
+	void ab_designator_ToggleBookReading()
+	{
+		ab_designator_BookMenuToggle = !ab_designator_BookMenuToggle;
+	}
+	
+	bool ab_designator_IsReadingBook()
+	{
+		return ab_designator_BookMenuToggle;
 	}
 };

@@ -25,17 +25,17 @@ class CfgMods
 			class gameScriptModule
 			{
 				value="";
-				files[]={"abDesignators/GameScripts"};
+				files[]={"abDesignators/scripts/3_game"};
 			};
 			class worldScriptModule
 			{
 				value="";
-				files[]={"abDesignators/WorldScripts"};
+				files[]={"abDesignators/scripts/4_world"};
 			};
 			class missionScriptModule
 			{
 				value="";
-				files[]={"abDesignators/MissionScripts"};
+				files[]={"abDesignators/scripts/5_mission"};
 			};
 		};
 	};
@@ -50,7 +50,7 @@ class CfgVehicles
 		scope=2;
 		title="$STR_abDesignators_item_designators_report";
 		author="$STR_abDesignators_item_designators_author";
-		file="abDesignators\Gear\Lore\Data\abDesignators_report.html";
+		file="abDesignators\gear\lore\data\abDesignators_report.html";
 		displayName="$STR_abDesignators_item_designators_report";
 		descriptionShort="$STR_abDesignators_item_designators_report_desc";
 		model="\dz\gear\consumables\Paper.p3d";
@@ -136,32 +136,32 @@ class CfgVehicles
 	class ab_designator_model_1: ab_designator_model_base
 	{
 		scope=2;
-		model="abDesignators\Models\designator1.p3d";
+		model="abDesignators\models\designator1.p3d";
 	};
 	class ab_designator_model_2: ab_designator_model_base
 	{
 		scope=2;
-		model="abDesignators\Models\designator2.p3d";
+		model="abDesignators\models\designator2.p3d";
 	};
 	class ab_designator_model_3: ab_designator_model_base
 	{
 		scope=2;
-		model="abDesignators\Models\designator3.p3d";
+		model="abDesignators\models\designator3.p3d";
 	};
 	class ab_designator_model_4: ab_designator_model_base
 	{
 		scope=2;
-		model="abDesignators\Models\designator4.p3d";
+		model="abDesignators\models\designator4.p3d";
 	};
 	class ab_designator_model_5: ab_designator_model_base
 	{
 		scope=2;
-		model="abDesignators\Models\designator5.p3d";
+		model="abDesignators\models\designator5.p3d";
 	};
 	class ab_designator_model_6: ab_designator_model_base
 	{
 		scope=2;
-		model="abDesignators\Models\designator6.p3d";
+		model="abDesignators\models\designator6.p3d";
 	};
 };
 
@@ -173,7 +173,7 @@ class CfgSoundShaders
 		{
 			
 			{
-				"abDesignators\Sounds\sync.ogg",
+				"abDesignators\sounds\sync.ogg",
 				1
 			}
 		};
@@ -187,11 +187,11 @@ class CfgSoundShaders
 		{
 			
 			{
-				"abDesignators\Sounds\teleport1.ogg",
+				"abDesignators\sounds\teleport1.ogg",
 				1
 			},
 			{
-				"abDesignators\Sounds\teleport2.ogg",
+				"abDesignators\sounds\teleport2.ogg",
 				1
 			}
 		};
@@ -205,7 +205,7 @@ class CfgSoundShaders
 		{
 			
 			{
-				"abDesignators\Sounds\kill.ogg",
+				"abDesignators\sounds\kill.ogg",
 				1
 			}
 		};
@@ -219,23 +219,23 @@ class CfgSoundShaders
 		{
 			
 			{
-				"abDesignators\Sounds\ambient1",
+				"abDesignators\sounds\ambient1",
 				1
 			},
 			{
-				"abDesignators\Sounds\ambient2",
+				"abDesignators\sounds\ambient2",
 				1
 			},
 			{
-				"abDesignators\Sounds\ambient3",
+				"abDesignators\sounds\ambient3",
 				1
 			},
 			{
-				"abDesignators\Sounds\ambient4",
+				"abDesignators\sounds\ambient4",
 				1
 			},
 			{
-				"abDesignators\Sounds\ambient5",
+				"abDesignators\sounds\ambient5",
 				1
 			}
 		};
@@ -249,47 +249,47 @@ class CfgSoundShaders
 		{
 			
 			{
-				"abDesignators\Sounds\creepy1",
+				"abDesignators\sounds\creepy1",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy2",
+				"abDesignators\sounds\creepy2",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy3",
+				"abDesignators\sounds\creepy3",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy4",
+				"abDesignators\sounds\creepy4",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy5",
+				"abDesignators\sounds\creepy5",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy6",
+				"abDesignators\sounds\creepy6",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy7",
+				"abDesignators\sounds\creepy7",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy8",
+				"abDesignators\sounds\creepy8",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy9",
+				"abDesignators\sounds\creepy9",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy10",
+				"abDesignators\sounds\creepy10",
 				1
 			},
 			{
-				"abDesignators\Sounds\creepy11",
+				"abDesignators\sounds\creepy11",
 				1
 			}
 		};
