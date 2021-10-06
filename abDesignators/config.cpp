@@ -178,7 +178,7 @@ class CfgSoundShaders
 			}
 		};
 		range=200;
-		volume=1;
+		volume=1.6;
 	};
 	
 	class ab_designator_teleport_SoundShader
@@ -196,7 +196,7 @@ class CfgSoundShaders
 			}
 		};
 		range=150;
-		volume=1;
+		volume=1.8;
 	};
 	
 	class ab_designator_kill_SoundShader
@@ -240,7 +240,7 @@ class CfgSoundShaders
 			}
 		};
 		range=300;
-		volume=0.5;
+		volume=1.8;
 	};
 	
 	class ab_designator_creepy_SoundShader
@@ -294,7 +294,7 @@ class CfgSoundShaders
 			}
 		};
 		range=200;
-		volume=1;
+		volume=1.8;
 	};
 };
 
