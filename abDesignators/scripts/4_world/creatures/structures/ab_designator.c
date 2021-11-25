@@ -66,7 +66,14 @@ class ab_Designator
 	{
 		if (designatorObjectBase)
 		{
-			designatorObjectBase.RequestPlayAmbient();
+			if(Get_ab_DesignatorManager() && Get_ab_DesignatorManager().GetLessIntrusiveAmbientSounds())
+			{
+				designatorObjectBase.RequestPlayLessIntrusiveAmbient();
+			}
+			else
+			{
+				designatorObjectBase.RequestPlayAmbient();
+			}
 		}
 	}
 	

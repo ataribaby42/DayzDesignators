@@ -39,7 +39,6 @@ class CfgMods
 			};
 		};
 	};
-
 };
 
 class CfgVehicles
@@ -136,31 +135,37 @@ class CfgVehicles
 	class ab_designator_model_1: ab_designator_model_base
 	{
 		scope=2;
+		storageCategory = 10;
 		model="abDesignators\models\designator1.p3d";
 	};
 	class ab_designator_model_2: ab_designator_model_base
 	{
 		scope=2;
+		storageCategory = 10;
 		model="abDesignators\models\designator2.p3d";
 	};
 	class ab_designator_model_3: ab_designator_model_base
 	{
 		scope=2;
+		storageCategory = 10;
 		model="abDesignators\models\designator3.p3d";
 	};
 	class ab_designator_model_4: ab_designator_model_base
 	{
 		scope=2;
+		storageCategory = 10;
 		model="abDesignators\models\designator4.p3d";
 	};
 	class ab_designator_model_5: ab_designator_model_base
 	{
 		scope=2;
+		storageCategory = 10;
 		model="abDesignators\models\designator5.p3d";
 	};
 	class ab_designator_model_6: ab_designator_model_base
 	{
 		scope=2;
+		storageCategory = 10;
 		model="abDesignators\models\designator6.p3d";
 	};
 };
@@ -241,6 +246,19 @@ class CfgSoundShaders
 		};
 		range=300;
 		volume=1.8;
+	};
+	
+	class ab_designator_less_intrusive_ambient_SoundShader
+	{
+		samples[]=
+		{
+			{
+				"abDesignators\sounds\ambient4",
+				1
+			}
+		};
+		range=300;
+		volume=1.5;
 	};
 	
 	class ab_designator_creepy_SoundShader
@@ -329,6 +347,14 @@ class CfgSoundSets
 		soundShaders[]=
 		{
 			"ab_designator_ambient_SoundShader"
+		};
+	};
+	
+	class ab_designator_less_intrusive_ambient_SoundSet
+	{
+		soundShaders[]=
+		{
+			"ab_designator_less_intrusive_ambient_SoundShader"
 		};
 	};
 	

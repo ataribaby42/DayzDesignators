@@ -11,6 +11,7 @@ static ref ab_DesignatorManager Get_ab_DesignatorManager()
 class ab_DesignatorManager
 {
 	private ref array<ref ab_DesignatorController> controllers = new array<ref ab_DesignatorController>();
+	private bool lessIntrusiveAmbientSounds = false
 	
 	void ab_DesignatorManager()
 	{
@@ -20,6 +21,25 @@ class ab_DesignatorManager
 	void ~ab_DesignatorManager()
 	{
 		Print("Designator Manager stopped.");
+	}
+	
+	void SetLessIntrusiveAmbientSounds(bool lessIntrusive)
+	{
+		lessIntrusiveAmbientSounds = lessIntrusive;
+		
+		if(lessIntrusiveAmbientSounds)
+		{
+			Print("Designator Manager LessIntrusiveAmbientSounds set to ON.");
+		}
+		else
+		{
+			Print("Designator Manager LessIntrusiveAmbientSounds set to OFF.");
+		}
+	}
+	
+	bool GetLessIntrusiveAmbientSounds()
+	{
+		return lessIntrusiveAmbientSounds;
 	}
 
 	void CreateRandomDesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount)

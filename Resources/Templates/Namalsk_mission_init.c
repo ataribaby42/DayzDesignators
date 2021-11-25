@@ -122,7 +122,7 @@ void Spawn_BK_L16_Designators()
 		};
 	}
 
-	Get_ab_DesignatorManager().CreatePredefinedDesignatorController("BL-L16", "5967.580078 17.901400 6665.549805", 600, designatorPositions);
+	Get_ab_DesignatorManager().CreatePredefinedDesignatorController("BK-L16", "5967.580078 17.901400 6665.549805", 600, designatorPositions);
 }
 
 void Spawn_BK_T12_Designators()
@@ -198,7 +198,7 @@ void Spawn_BK_T12_Designators()
 		};
 	}
 
-	Get_ab_DesignatorManager().CreatePredefinedDesignatorController("BL-T12", "4079.620117 71.463097 9249.419922", 600, designatorPositions);
+	Get_ab_DesignatorManager().CreatePredefinedDesignatorController("BK-T12", "4079.620117 71.463097 9249.419922", 600, designatorPositions);
 }
 
 void Spawn_BK_M06_Designators()
