@@ -62,7 +62,7 @@ Creates circular Designator infested area with size of radius at position and ra
   
 Creates predefined Designator infested area with logical center position and fills it with Designators from designatorPositions string array that contains coords in vector format. Area resets everytime no players are inside resetRadius. You can name area with name parameter to see it in logs.
 
-**_Get_ab_DesignatorManager().SetLessIntrusiveAmbientSounds(bool value)[/b]_**
+**_Get_ab_DesignatorManager().SetLessIntrusiveAmbientSounds(bool value)_**
 
 Sets ambient sound scape for less intrusive sounds for player. Can be set anytime. Next scheduled ambient sounds will be played accordingly.
 
