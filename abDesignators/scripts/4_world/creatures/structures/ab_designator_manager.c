@@ -11,7 +11,7 @@ static ref ab_DesignatorManager Get_ab_DesignatorManager()
 class ab_DesignatorManager
 {
 	private ref array<ref ab_DesignatorController> controllers = new array<ref ab_DesignatorController>();
-	private bool lessIntrusiveAmbientSounds = false
+	private bool lessIntrusiveAmbientSounds = false;
 	
 	void ab_DesignatorManager()
 	{
