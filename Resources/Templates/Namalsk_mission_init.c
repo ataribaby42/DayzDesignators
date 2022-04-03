@@ -1,5 +1,6 @@
 void SpawnDesignators()
 {
+	Get_ab_DesignatorManager().SetLessIntrusiveAmbientSounds(true); 
 	Spawn_BK_L16_Designators();
 	Spawn_BK_T12_Designators();
 	Spawn_BK_M06_Designators();

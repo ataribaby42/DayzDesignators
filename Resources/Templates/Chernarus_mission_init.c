@@ -472,6 +472,8 @@ void main()
 	
 	float chance = 0.5;
 	
+	Get_ab_DesignatorManager().SetLessIntrusiveAmbientSounds(true); 
+	
 	if (Math.RandomFloat01() < chance)
 	{
 		SpawnVeresnikDesignators();
