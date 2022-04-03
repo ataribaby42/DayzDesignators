@@ -8,13 +8,18 @@ class ab_designator_model_base extends BuildingSuper
 
 	void ab_designator_model_base()
 	{	
-	
+		GetGame().GetCallQueue(CALL_CATEGORY_SYSTEM).CallLater(UpdateTheLifeTime, 1000, false);
 	}
 	
 	void ~ab_designator_model_base()
 	{
 		
 	}
+	
+	void UpdateTheLifeTime()
+    {
+        SetLifetime(360000);
+    }
 	
 	void RequestPlaySync()
 	{
