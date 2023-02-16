@@ -186,10 +186,10 @@ class ab_DesignatorController
 		}
 	}
 	
-	Vector2 GetRandomPointInCircle(float radius)
+	Vector2 GetRandomPointInCircle(float Radius)
 	{
 		float a = Math.RandomFloat01() * 2 * Math.PI;
-		float r = radius * Math.Sqrt(Math.RandomFloat01());
+		float r = Radius * Math.Sqrt(Math.RandomFloat01());
 		float x = r * Math.Cos(a);
 		float y = r * Math.Sin(a);
 		return new Vector2(x, y);
