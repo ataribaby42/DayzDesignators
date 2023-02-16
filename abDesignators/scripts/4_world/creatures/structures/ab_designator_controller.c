@@ -12,24 +12,24 @@ class ab_DesignatorController
 	private ref array<string> designatorPositions = new array<string>();
 	private bool active = false;
 	
-	void ab_DesignatorController(string name, vector position, float resetRadius, float radius, int designatorCount, ref array<string> designatorPositions)
+	void ab_DesignatorController(string Name, vector Position, float ResetRadius, float Radius, int DesignatorCount, ref array<string> DesignatorPositions)
 	{
-		if (!designatorPositions)
+		if (!DesignatorPositions)
 		{
-			Print("Random Designators <" + name + "> created at " + position + ".");
+			Print("Random Designators <" + Name + "> created at " + Position + ".");
 		}
 		else
 		{
-			Print("Predefined Designators <" + name + "> created at " + position + ".");
+			Print("Predefined Designators <" + Name + "> created at " + Position + ".");
 		}
 		
 		lastCreepySoundTimeslice = 0;
-		this.name = name;
-		this.position = position;
-		this.radius = radius;
-		this.designatorCount = designatorCount;
-		this.designatorPositions = designatorPositions;
-		this.resetRadius = resetRadius;
+		this.name = Name;
+		this.position = Position;
+		this.radius = Radius;
+		this.designatorCount = DesignatorCount;
+		this.designatorPositions = DesignatorPositions;
+		this.resetRadius = ResetRadius;
 		
 		for (int i = 0; i < designatorCount; i++)
 		{

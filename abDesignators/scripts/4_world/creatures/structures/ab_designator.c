@@ -16,13 +16,13 @@ class ab_Designator
 	bool IsTransmitting = false; // Any player is within transmittingRange regardless of LOS and FOV checks - used for ambient random sounds
 	bool IsTeleportBlocked = false; // Designator teleportation is blocked by any player that looks at it with clear LOS within detectionRange or designator wandered outside designators area
 	
-	void ab_Designator(string name, vector areaPosition, float areaResetRadius)
+	void ab_Designator(string Name, vector AreaPosition, float AreaResetRadius)
 	{
 		if (GetGame())
 		{
-			this.name = name;
-			this.areaPosition = areaPosition;
-			this.areaResetRadius = areaResetRadius;
+			this.name = Name;
+			this.areaPosition = AreaPosition;
+			this.areaResetRadius = AreaResetRadius;
 			designatorObject = GetGame().CreateObject(designatorModels.GetRandomElement(), areaPosition);
 			designatorObjectBase = ab_designator_model_base.Cast(designatorObject);
 		}
