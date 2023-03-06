@@ -161,27 +161,23 @@ class ab_Designator
 			lookDirection[2] = swap;
 			lookDirection[0] = -lookDirection[0];
 			lookDirection[1] = -lookDirection[1];
-			float VICINITY_CONE_REACH_DISTANCE	= detectionRange;
-			float VICINITY_CONE_ANGLE 			= 30;
-			float CONE_HEIGHT_MIN 				= -9999.0;
-			float CONE_HEIGHT_MAX 				= 9999.0;
-			array<Object> objects_in_vicinity = new array<Object>;
-			vector headingDirection = MiscGameplayFunctions.GetHeadingVector(playerObj);
-			DayZPlayerUtils.GetEntitiesInCone(lookPosition, lookDirection, VICINITY_CONE_ANGLE, VICINITY_CONE_REACH_DISTANCE, CONE_HEIGHT_MIN, CONE_HEIGHT_MAX, objects_in_vicinity);
 			
-			for (int i = 0; i < objects_in_vicinity.Count(); i++)
-			{
-				Object object_in_cone = objects_in_vicinity.Get(i);
-				
-				if (designatorObj == object_in_cone)
-				{
-					return true;
-					break;
-				}
-			}
+			return IsPointInsideCone(lookPosition, lookDirection, designatorObj.GetPosition(), 35 * Math.DEG2RAD, detectionRange);
 		}
 		
 		return false;
+	}
+	
+	bool IsPointInsideCone(vector coneOrigin, vector coneDirection, vector point, float maxAngle, float maxDistance)
+	{
+		float distanceToConeOrigin = vector.Distance(coneOrigin, point);
+		
+		if (distanceToConeOrigin > maxDistance)
+		{
+			return false;
+		}
+		
+		return Math3D.IntersectSphereCone(point, 0.1, coneOrigin, coneDirection, maxAngle);
 	}
 	
 	void Update(float timeslice)
