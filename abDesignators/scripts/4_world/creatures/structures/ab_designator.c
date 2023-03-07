@@ -148,7 +148,6 @@ class ab_Designator
 	{
 		if (playerObj && designatorObj)
 		{
-			float y;
 			angles = vector.Direction(playerObj.GetPosition(), designatorObj.GetPosition()).Normalized().VectorToAngles();
 			orientation = Vector(angles[0] + 45, Math.RandomFloatInclusive(-2, 2), Math.RandomFloatInclusive(-2, 2));
 			int bone_index = playerObj.GetBoneIndexByName("Head");
@@ -209,8 +208,6 @@ class ab_Designator
 					
 					if (distanceCheck <= detectionRange)
 					{
-						vector orientationTmp;
-						vector anglesTmp;
 						bool inView = InPlayerFovCheck(playerCheck, designatorObject, orientation, angles);
 						bool losCheck = LosCheck(designatorObject, playerCheck);
 						
