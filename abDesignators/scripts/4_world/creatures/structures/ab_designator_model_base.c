@@ -26,7 +26,7 @@ class ab_designator_model_base extends BuildingSuper
 		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("sync");
-			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
+			GetGame().RPCSingleParam(this, abDesignatorRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
 		}
 	}
 	
@@ -35,7 +35,7 @@ class ab_designator_model_base extends BuildingSuper
 		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("teleport");
-			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
+			GetGame().RPCSingleParam(this, abDesignatorRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
 		}
 	}
 	
@@ -44,7 +44,7 @@ class ab_designator_model_base extends BuildingSuper
 		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("kill");
-			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
+			GetGame().RPCSingleParam(this, abDesignatorRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
 		}
 	}
 	
@@ -53,7 +53,7 @@ class ab_designator_model_base extends BuildingSuper
 		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("ambient");
-			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
+			GetGame().RPCSingleParam(this, abDesignatorRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
 		}
 	}
 	
@@ -62,7 +62,7 @@ class ab_designator_model_base extends BuildingSuper
 		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("ambientLess");
-			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
+			GetGame().RPCSingleParam(this, abDesignatorRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
 		}
 	}
 	
@@ -71,7 +71,7 @@ class ab_designator_model_base extends BuildingSuper
 		if (GetGame() && GetGame().IsServer())
 		{
 			Param1<string> p = new Param1<string>("creepy");
-			GetGame().RPCSingleParam(this, abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
+			GetGame().RPCSingleParam(this, abDesignatorRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST, p, true);
 		}
 	}
 	
@@ -125,7 +125,7 @@ class ab_designator_model_base extends BuildingSuper
 		{
 			switch(rpc_type)
 			{
-				case abRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST:
+				case abDesignatorRPC.RPC_AB_DESIGNATOR_SOUND_REQUEST:
 
 					ref Param1<string> soundRequest = new Param1<string>("");
 					

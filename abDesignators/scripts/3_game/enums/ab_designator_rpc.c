@@ -1,4 +1,4 @@
-enum abRPC 
+enum abDesignatorRPC 
 {
 	RPC_AB_DESIGNATOR_SOUND_REQUEST
 }
