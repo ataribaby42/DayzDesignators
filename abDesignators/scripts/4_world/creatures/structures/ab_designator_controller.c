@@ -105,9 +105,9 @@ class ab_DesignatorController
 					if (distance <= resetRadius)
 					{
 						if (!active)
-					{
-						Print("Designators <" + name + "> active at " + position + ".");
-					}
+						{
+							Print("Designators <" + name + "> active at " + position + ".");
+						}
 					
 					nobodyNear = false;
 					active = true;
