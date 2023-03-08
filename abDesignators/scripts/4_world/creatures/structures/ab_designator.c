@@ -229,13 +229,17 @@ class ab_Designator
 					{
 						IsTransmitting = true;
 					}
-					
-					distanceCheck = vector.Distance(position, areaPosition);
-					
-					if (distanceCheck > areaResetRadius)
-					{
-						IsTeleportBlocked = true;
-					}
+				}
+			}
+			
+			if (nearestPerson)
+			{
+				PlayerBase playerTest = PlayerBase.Cast(nearestPerson);
+				distanceCheck = vector.Distance(playerTest.GetPosition(), areaPosition);
+						
+				if (distanceCheck > areaResetRadius)
+				{
+					IsTeleportBlocked = true;
 				}
 			}
 

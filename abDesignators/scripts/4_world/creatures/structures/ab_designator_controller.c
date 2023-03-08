@@ -102,7 +102,7 @@ class ab_DesignatorController
 					vector playerPos = player.GetPosition();
 					float distance = vector.Distance(playerPos, position);
 					
-					if (distance <= resetRadius)
+					if (distance <= resetRadius * 1.5)
 					{
 						if (!active)
 						{
