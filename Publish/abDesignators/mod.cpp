@@ -7,4 +7,4 @@ tooltip = "$STR_abDesignators_mod_name";
 overview = "$STR_abDesignators_mod_overview";
 action = "https://steamcommunity.com/sharedfiles/filedetails/?id=2097380865";
 author = "ataribaby";
-version = "1.10";
+version = "1.11";
