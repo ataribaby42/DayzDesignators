@@ -7,5 +7,10 @@
 *.paa binary
 *.p3d binary
 *.png binary
+*.jpg binary
 *.ms3d binary
 *.pdn binary
+*.bikey binary
+*.bisign binary
+*.pbo binary
+*.edds binary
