@@ -109,9 +109,9 @@ class ab_DesignatorController
 							Print("Designators <" + name + "> active at " + position + ".");
 						}
 					
-					nobodyNear = false;
-					active = true;
-					break;
+						nobodyNear = false;
+						active = true;
+						break;
 					}
 				}
 			}
