@@ -1,4 +1,4 @@
-# DayzDesignators
+# DayzDesignators 
 <p>DayZ Standalone Designators mod inspired by meshcarver's work on ARMA 3 Nova Zona mod.</p>
 <p>https://forums.bohemia.net/forums/topic/134345-large-stalker-inspired-island-nova-zona/</p>
 <p>https://www.youtube.com/watch?v=nBZ12QKk2aE</p>
