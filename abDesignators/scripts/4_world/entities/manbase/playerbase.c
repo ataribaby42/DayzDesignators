@@ -1,16 +1,15 @@
 modded class PlayerBase extends ManBase
 {
 	protected bool ab_designator_BookMenuToggle;
-	float designatorKillTimer;
-	string designatorKillName;
-	bool designatorKillRequested;
+	float ab_designatorKillTimer;
+	string ab_designatorKillName;
+	bool ab_designatorKillRequested;
 	
 	override void Init()
 	{
 		super.Init();
 		
-		designatorKillTimer = 0;
-		designatorKillRequested = false;
+		ab_designatorKillRequested = false;
 		ab_designator_BookMenuToggle = false;
 	}
 	
@@ -18,26 +17,23 @@ modded class PlayerBase extends ManBase
 	{
 		super.EOnFrame(other, timeSlice);
 		
-		if (GetGame() && GetGame().IsServer() && designatorKillRequested)	
+		if (GetGame() && GetGame().IsServer() && ab_designatorKillRequested)	
 		{
-			designatorKillTimer += timeSlice;
-			
-			if (designatorKillTimer >= 0.35)
+			if ((GetGame().GetTime() / 1000) >= ab_designatorKillTimer)
 			{
-				designatorKillTimer = 0;	
-				designatorKillRequested = false;
+				ab_designatorKillRequested = false;
 				PlayerIdentity identity = GetIdentity();
 				
 				if (identity)
 				{
-					Print("Player <" + GetIdentity().GetName() + "> has been killed by Designator <" + designatorKillName + ">.");
+					Print("Player <" + GetIdentity().GetName() + "> has been killed by Designator <" + ab_designatorKillName + ">.");
 				}
 				else
 				{
-					Print("Player <unknown> has been killed by Designator <" + designatorKillName + ">.");
+					Print("Player <unknown> has been killed by Designator <" + ab_designatorKillName + ">.");
 				}
 				
-				designatorKillName = "";
+				ab_designatorKillName = "";
 				SetHealth("GlobalHealth", "Health", 0);
 			}
 		}
@@ -45,8 +41,9 @@ modded class PlayerBase extends ManBase
 	
 	void RequestDesignatorKill(string name)
 	{
-		designatorKillRequested = true;
-		designatorKillName = name;
+		ab_designatorKillTimer = (GetGame().GetTime() / 1000) + 0.35;
+		ab_designatorKillRequested = true;
+		ab_designatorKillName = name;
 	}
 	
 	void ab_designator_ToggleBookReading()
