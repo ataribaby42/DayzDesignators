@@ -8,6 +8,7 @@ class CfgPatches
 		requiredAddons[]=
 		{
 			"DZ_Data",
+			"DZ_Gear_Consumables",
 			"DZ_Scripts"
 		};
 	};
@@ -44,6 +45,24 @@ class CfgMods
 class CfgVehicles
 {
 	class Inventory_Base;
+	class Paper;
+	class ab_designator_report_paper: Paper
+	{
+		scope=2;
+		displayName="$STR_abDesignators_item_designators_report";
+		descriptionShort="$STR_abDesignators_item_designators_report_desc";
+		model="\dz\gear\consumables\Paper.p3d";
+		weight=2;
+		itemSize[]={1,1};
+		hiddenSelections[]=
+        {
+            "zbytek"
+        };
+		hiddenSelectionsTextures[]=
+		{
+			"abDesignators\gear\consumables\data\designator_report_co.paa"
+		};
+	};
 	class ab_designator_report: Inventory_Base
 	{
 		scope=2;
