@@ -69,6 +69,8 @@ Sets ambient sound scape for less intrusive sounds for player. Can be set anytim
 ### BONUS
 Spawnable inventory item "Classified Designators Report". Can be spawned into player inventory or via types.xml. Class name is "ab_designator_report".
 
+As alternate, ab_designator_report_paper item with report text on texture, players could use it as regular paper.
+
 ### CREDITS
 <ul>
   <li>Code and models by ataribaby.</li>
